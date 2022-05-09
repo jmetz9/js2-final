@@ -1,18 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SignInPage @log-in="setAuth" v-if="!auth"></SignInPage>
+    <MainPage @logout="auth=null" :auth="auth" v-else></MainPage>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SignInPage from './pages/SignInPage.vue'
+import MainPage from "@/pages/MainPage";
+import router from "@/router";
 
 export default {
   name: 'App',
+  router,
   components: {
-    HelloWorld
-  }
+    MainPage,
+    SignInPage
+  },
+  data() {
+    return {auth: null,}
+  },
+  methods: {
+
+    setAuth(auth){
+      console.log(auth)
+
+      this.auth = auth;
+    }
+  },
+
+
 }
 </script>
 
