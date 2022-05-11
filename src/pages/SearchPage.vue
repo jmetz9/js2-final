@@ -1,6 +1,7 @@
 <template>
  <div>
-    <b-form @submit.prevent="search" class="mt-3">
+   <div class="row justify-content-center">
+    <b-form @submit.prevent="search" class="mt-3 col-6">
       <label>Search Type</label>
       <b-form-select :options="searchTypes" v-model="searchType" ></b-form-select>
       <label class="mt-3">Search Term</label>
@@ -10,7 +11,7 @@
       <p> I had troubles getting the results to show on the page so I put in a console.log that shows the results in the
         console to show that it at least works (if that counts for anything)</p>
     </b-form>
-    <p id="results"></p>
+   </div>
  </div>
 </template>
 

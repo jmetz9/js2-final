@@ -1,15 +1,18 @@
 <template>
-  <div>
-    <b-list-group>
-      <b-list-group-item v-for="character in characters" :key="character.characterName" >
-        <CharacterTab :name="character.characterName" :race="character.characterRace" :c-class="character.characterClass" button v-b-modal.stats></CharacterTab>
-        <b-modal id="stats" cancel-disabled>
-          <p v-for="info in information" :key="info.value">{{info.text}}: {{character[info.value]}}</p>
-        </b-modal>
-      </b-list-group-item>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <b-list-group class="mt-3" >
+        <b-list-group-item v-for="character in characters" :key="character.characterName" >
+          <CharacterTab :name="character.characterName" :race="character.characterRace" :c-class="character.characterClass" button v-b-modal.stats></CharacterTab>
+          <b-modal id="stats" cancel-disabled>
+            <p v-for="info in information" :key="info.value">{{info.text}}: {{character[info.value]}}</p>
+          </b-modal>
+        </b-list-group-item>
 
-    </b-list-group>
-    <b-button class="mt-3" variant="outline-success" to="/create-a-character"> Create a Character </b-button>
+      </b-list-group>
+      <b-button class="mt-3" variant="outline-success" to="/create-a-character"> Create a Character </b-button>
+    </div>
+
   </div>
 
 </template>
