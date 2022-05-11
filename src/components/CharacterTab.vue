@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{name}}</p>
+    <p class="text-primary"><u>{{name}}: {{race}} {{cClass}}</u></p>
   </div>
 </template>
 
@@ -8,7 +8,9 @@
 export default {
   name: "CharacterTab",
   props: {
-    name: String
+    name: String,
+    race: String,
+    cClass: String,
   },
 }
 </script>

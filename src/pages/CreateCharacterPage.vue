@@ -1,17 +1,25 @@
 <template>
   <div>
     <b-button to="/characters" class="mt-3" variant="outline-primary">Go Back</b-button>
-    <b-form @submit.prevent="createCharacter">
-      <b-form-input placeholder="Enter Name" class="mt-3" v-model="character.characterName" required></b-form-input>
-      <b-form-select :options="classes" v-model="character.characterClass" class="mt-3" required></b-form-select>
-      <b-form-select :options="races" v-model="character.characterRace" class="mt-3" required></b-form-select>
-      <h3 class="mt-5">Stat Modifiers</h3>
-      <div v-for="stat in stats" :key="stat.value" class="mt-3">
-        <label>{{ stat.text }}</label>
-        <b-form-select :options="modifiers" v-model="character[stat.value]" required></b-form-select>
-      </div>
-      <b-button type="submit" variant="success" class="mt-3">Create</b-button>
-    </b-form>
+    <div class="row justify-content-center">
+      <b-form @submit.prevent="createCharacter" class="col-6 ">
+        <h3 class="mt-5"><u>Basic Info</u></h3>
+        <label>Enter Name</label>
+        <b-form-input placeholder="Enter Name" class="mt-3" v-model="character.characterName" required></b-form-input>
+        <label>Select Class</label>
+        <b-form-select :options="classes" v-model="character.characterClass" class="mt-3" required></b-form-select>
+        <label>Select Race</label>
+        <b-form-select :options="races" v-model="character.characterRace" class="mt-3" required></b-form-select>
+        <h3 class="mt-5"><u>Stat Modifiers</u></h3>
+        <div v-for="stat in stats" :key="stat.value" class="mt-3">
+          <label>{{ stat.text }}</label>
+          <b-form-select :options="modifiers" v-model="character[stat.value]" required></b-form-select>
+        </div>
+        <b-button type="submit" variant="success" class="mt-3">Create</b-button>
+        <p>As long as the form is fully completed your character will be created. I just couldn't figure out how to take you back to the main page afterwards</p>
+      </b-form>
+    </div>
+
   </div>
 </template>
 

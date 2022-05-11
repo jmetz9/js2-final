@@ -7,6 +7,8 @@
       <b-form-input placeholder="Enter Search Term" v-model="searchString"  required></b-form-input>
       <br>
       <b-button type="submit" variant="primary">Search</b-button>
+      <p> I had troubles getting the results to show on the page so I put in a console.log that shows the results in the
+        console to show that it at least works (if that counts for anything)</p>
     </b-form>
     <p id="results"></p>
  </div>

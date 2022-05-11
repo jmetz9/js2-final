@@ -1,9 +1,13 @@
 <template>
   <div>
     <b-list-group>
-      <b-list-group-item v-for="character in characters" :key="character.characterName">
-        <CharacterTab :name="character.characterName"></CharacterTab>
+      <b-list-group-item v-for="character in characters" :key="character.characterName" >
+        <CharacterTab :name="character.characterName" :race="character.characterRace" :c-class="character.characterClass" button v-b-modal.stats></CharacterTab>
+        <b-modal id="stats" cancel-disabled>
+          <p v-for="info in information" :key="info.value">{{info.text}}: {{character[info.value]}}</p>
+        </b-modal>
       </b-list-group-item>
+
     </b-list-group>
     <b-button class="mt-3" variant="outline-success" to="/create-a-character"> Create a Character </b-button>
   </div>
@@ -18,7 +22,20 @@ export default {
   name: "CharactersPage",
   components: {CharacterTab, },
   data (){
-    return {characters: []}
+    return {
+      characters: [],
+      information: [
+        {value: 'characterName', text: 'Name'},
+        {value: 'characterClass', text: 'Class'},
+        {value: 'characterRace', text: 'Race'},
+        {value: 'strength', text: 'Strength'},
+        {value: 'dexterity', text: 'Dexterity'},
+        {value: 'constitution', text: 'Constitution'},
+        {value: 'intelligence', text: 'Intelligence'},
+        {value: 'wisdom', text: 'Wisdom'},
+        {value: 'charisma', text: 'Charisma'},
+      ],
+    }
   },
   props: {
     auth: Object,
