@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="text-primary"><u>{{name}}: {{race}} {{cClass}}</u></p>
+    <p class="text-primary"><u>{{name}}: The {{race}} {{cClass}}</u></p>
   </div>
 </template>
 

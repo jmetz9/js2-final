@@ -3,8 +3,8 @@
     <div class="col-6">
       <b-list-group class="mt-3" >
         <b-list-group-item v-for="character in characters" :key="character.characterName" >
-          <CharacterTab :name="character.characterName" :race="character.characterRace" :c-class="character.characterClass" button v-b-modal.stats></CharacterTab>
-          <b-modal id="stats" cancel-disabled>
+          <CharacterTab :name="character.characterName" :race="character.characterRace" :c-class="character.characterClass" button v-b-modal="modalId(character.characterName)"></CharacterTab>
+          <b-modal :id="'modal' + character.characterName" cancel-disabled>
             <p v-for="info in information" :key="info.value">{{info.text}}: {{character[info.value]}}</p>
           </b-modal>
         </b-list-group-item>
@@ -43,7 +43,13 @@ export default {
   props: {
     auth: Object,
   },
-  firestore() {
+  methods: {
+    modalId(i) {
+      return 'modal' + i;
+    },
+  },
+
+    firestore() {
     console.log(this.auth)
 
     return {

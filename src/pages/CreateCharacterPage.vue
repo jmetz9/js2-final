@@ -17,6 +17,7 @@
           <b-form-select :options="modifiers" v-model="character[stat.value]" required></b-form-select>
         </div>
         <b-button type="submit" variant="success" class="mt-3">Create</b-button>
+        <b-button to="/characters" class="mt-3 ml-2" variant="outline-primary">Go Back</b-button>
         <p>As long as the form is fully completed, your character will be created. I just couldn't figure out how to take you back to the main page afterwards</p>
       </b-form>
     </div>
