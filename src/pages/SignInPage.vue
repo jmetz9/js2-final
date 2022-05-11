@@ -1,14 +1,5 @@
 <template>
   <div>
-    <b-button v-b-modal.SignInModal>Sign-In With E-mail</b-button>
-    <b-modal id="SignInModal" cancel-disabled ok-disabled>
-      <form>
-        <input placeholder="E-mail">
-        <input placeholder="Password">
-        <button type="submit" @click="loginWithEmail">Sign-In</button>
-      </form>
-    </b-modal>
-    <br>
     <b-button @click="loginWithGoogle">Sign-In With Google</b-button>
   </div>
 </template>
